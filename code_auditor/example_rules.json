@@ -1,0 +1,45 @@
+{
+  "rules": [
+    {
+      "rule_id": "CUSTOM001",
+      "name": "禁止使用 print 语句",
+      "description": "生产代码中不应使用 print 语句，应使用日志框架",
+      "category": "best_practices",
+      "severity": "medium",
+      "pattern": "\\bprint\\s*\\(",
+      "suggestion": "使用 Python 日志模块 (logging) 代替 print",
+      "file_extensions": [".py"]
+    },
+    {
+      "rule_id": "CUSTOM002",
+      "name": "API 必须有版本控制",
+      "description": "API 路径应包含版本号",
+      "category": "best_practices",
+      "severity": "high",
+      "pattern": "@app\\.route\\(['\\\"]\\/(?!v[0-9])",
+      "suggestion": "在 API 路径中添加版本号，如 /v1/resource",
+      "file_extensions": [".py"]
+    },
+    {
+      "rule_id": "CUSTOM003",
+      "name": "禁止使用 time.sleep",
+      "description": "在异步代码中使用 time.sleep 会阻塞事件循环",
+      "category": "performance",
+      "severity": "high",
+      "pattern": "time\\.sleep\\s*\\(",
+      "suggestion": "使用 asyncio.sleep() 代替 time.sleep()",
+      "fix_template": "import asyncio\n\n# 替换前:\ntime.sleep(1)\n\n# 替换后:\nawait asyncio.sleep(1)",
+      "file_extensions": [".py"]
+    },
+    {
+      "rule_id": "CUSTOM004",
+      "name": "Console.log 必须移除",
+      "description": "生产代码中不应包含 console.log 调试语句",
+      "category": "best_practices",
+      "severity": "medium",
+      "pattern": "console\\.(log|debug|info|warn|error)\\s*\\(",
+      "suggestion": "移除所有 console 语句或使用日志库",
+      "file_extensions": [".js", ".ts", ".jsx", ".tsx"]
+    }
+  ]
+}

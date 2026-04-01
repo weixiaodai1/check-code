@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Maven 项目代码审核报告</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header { background: white; padding: 40px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); text-align: center; }
+        .header h1 { color: #333; font-size: 2.5em; margin-bottom: 10px; }
+        .header .subtitle { color: #666; font-size: 1.2em; }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 20px; }
+        .stat-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; }
+        .stat-value { font-size: 3em; font-weight: bold; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { color: #666; font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; }
+        .section { background: white; padding: 30px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .section h2 { color: #333; font-size: 1.8em; margin-bottom: 20px; border-bottom: 3px solid #667eea; padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
+        .skill-card { background: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #667eea; transition: transform 0.2s; }
+        .skill-card:hover { transform: translateX(5px); }
+        .skill-name { font-size: 1.2em; font-weight: bold; color: #333; margin-bottom: 5px; }
+        .skill-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .skill-level { font-size: 0.85em; padding: 3px 10px; border-radius: 15px; color: white; }
+        .level-expert { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .level-advanced { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .level-intermediate { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .level-beginner { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .skill-confidence { color: #888; font-size: 0.85em; }
+        .skill-evidence { font-size: 0.8em; color: #666; margin-top: 8px; font-style: italic; }
+        .category-section { margin-bottom: 30px; }
+        .category-title { color: #555; font-size: 1.1em; margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #764ba2; }
+        .footer { text-align: center; padding: 20px; color: white; font-size: 0.9em; }
+        @media (max-width: 768px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>☕ Java Maven 项目代码审核报告</h1>
+            <p class="subtitle">专业级技能识别与技术栈分析</p>
+            <p style="margin-top: 15px; color: #888;">审核时间: 2026-04-01 11:30:02</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value">11</div>
+                <div class="stat-label">分析文件</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">687</div>
+                <div class="stat-label">代码行数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">28</div>
+                <div class="stat-label">识别技能</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">9</div>
+                <div class="stat-label">技能类别</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ 专业技能识别结果</h2>
+<div class="category-section"><h3 class="category-title">📁 Java技能 (6项)</h3><div class="skill-grid">
+        <div class="skill-card">
+            <div class="skill-name">REST API Design</div>
+            <div class="skill-meta">
+                <span class="skill-level level-advanced">高级</span>
+                <span class="skill-confidence">置信度: 100%</span>
+            </div>
+            <div class="skill-evidence">证据: @GetMapping.*\/\{, ResponseEntity<</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Lombok</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 100%</span>
+            </div>
+            <div class="skill-evidence">证据: @Data, @Builder</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Validation</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 95%</span>
+            </div>
+            <div class="skill-evidence">证据: @NotBlank, @Size</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Optional</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 65%</span>
+            </div>
+            <div class="skill-evidence">证据: Optional<, \.isPresent\(\)</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Java SE</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 45%</span>
+            </div>
+            <div class="skill-evidence">证据: public\s+static\s+void\s+main</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Java EE / Jakarta EE</div>
+            <div class="skill-meta">
+                <span class="skill-level level-advanced">高级</span>
+                <span class="skill-confidence">置信度: 40%</span>
+            </div>
+            <div class="skill-evidence">证据: @Entity</div>
+        </div>
+        </div></div><div class="category-section"><h3 class="category-title">📁 框架组件 (6项)</h3><div class="skill-grid">
+        <div class="skill-card">
+            <div class="skill-name">Spring Configuration</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 70%</span>
+            </div>
+            <div class="skill-evidence">证据: @Configuration注解</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Spring IoC</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 70%</span>
+            </div>
+            <div class="skill-evidence">证据: @Bean注解</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">REST API</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 70%</span>
+            </div>
+            <div class="skill-evidence">证据: @RestController注解</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Spring Data</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 70%</span>
+            </div>
+            <div class="skill-evidence">证据: @Repository注解</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Spring Service</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 70%</span>
+            </div>
+            <div class="skill-evidence">证据: @Service注解</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">单元测试</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 70%</span>
+            </div>
+            <div class="skill-evidence">证据: @Test注解</div>
+        </div>
+        </div></div><div class="category-section"><h3 class="category-title">📁 Java框架 (5项)</h3><div class="skill-grid">
+        <div class="skill-card">
+            <div class="skill-name">Spring Framework</div>
+            <div class="skill-meta">
+                <span class="skill-level level-advanced">高级</span>
+                <span class="skill-confidence">置信度: 100%</span>
+            </div>
+            <div class="skill-evidence">证据: org\.springframework\., @SpringBootApplication</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Spring Boot</div>
+            <div class="skill-meta">
+                <span class="skill-level level-advanced">高级</span>
+                <span class="skill-confidence">置信度: 100%</span>
+            </div>
+            <div class="skill-evidence">证据: SpringBootApplication, SpringApplication\.run</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Spring Security</div>
+            <div class="skill-meta">
+                <span class="skill-level level-expert">专家级</span>
+                <span class="skill-confidence">置信度: 100%</span>
+            </div>
+            <div class="skill-evidence">证据: @EnableWebSecurity, SecurityFilterChain</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Spring MVC</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 100%</span>
+            </div>
+            <div class="skill-evidence">证据: @RequestMapping, @GetMapping</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Spring Data JPA</div>
+            <div class="skill-meta">
+                <span class="skill-level level-advanced">高级</span>
+                <span class="skill-confidence">置信度: 100%</span>
+            </div>
+            <div class="skill-evidence">证据: extends\s+JpaRepository, @Query</div>
+        </div>
+        </div></div><div class="category-section"><h3 class="category-title">📁 Maven依赖 (4项)</h3><div class="skill-grid">
+        <div class="skill-card">
+            <div class="skill-name">Redis</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 80%</span>
+            </div>
+            <div class="skill-evidence">证据: Maven依赖: spring-boot-starter-data-redis</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Spring Boot Web</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 80%</span>
+            </div>
+            <div class="skill-evidence">证据: Maven依赖: spring-boot-starter-web</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Bean Validation</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 80%</span>
+            </div>
+            <div class="skill-evidence">证据: Maven依赖: spring-boot-starter-validation</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Spring Boot Testing</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 80%</span>
+            </div>
+            <div class="skill-evidence">证据: Maven依赖: spring-boot-starter-test</div>
+        </div>
+        </div></div><div class="category-section"><h3 class="category-title">📁 ORM框架 (2项)</h3><div class="skill-grid">
+        <div class="skill-card">
+            <div class="skill-name">Hibernate</div>
+            <div class="skill-meta">
+                <span class="skill-level level-advanced">高级</span>
+                <span class="skill-confidence">置信度: 100%</span>
+            </div>
+            <div class="skill-evidence">证据: @Table, @Column</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">JPA/Hibernate ORM</div>
+            <div class="skill-meta">
+                <span class="skill-level level-advanced">高级</span>
+                <span class="skill-confidence">置信度: 100%</span>
+            </div>
+            <div class="skill-evidence">证据: @Entity, @Table</div>
+        </div>
+        </div></div><div class="category-section"><h3 class="category-title">📁 测试框架 (2项)</h3><div class="skill-grid">
+        <div class="skill-card">
+            <div class="skill-name">JUnit</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 100%</span>
+            </div>
+            <div class="skill-evidence">证据: import\s+org\.junit\., @Test</div>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-name">Mockito</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 100%</span>
+            </div>
+            <div class="skill-evidence">证据: import\s+org\.mockito\., @Mock</div>
+        </div>
+        </div></div><div class="category-section"><h3 class="category-title">📁 架构设计 (1项)</h3><div class="skill-grid">
+        <div class="skill-card">
+            <div class="skill-name">Design Patterns</div>
+            <div class="skill-meta">
+                <span class="skill-level level-advanced">高级</span>
+                <span class="skill-confidence">置信度: 40%</span>
+            </div>
+            <div class="skill-evidence">证据: Builder</div>
+        </div>
+        </div></div><div class="category-section"><h3 class="category-title">📁 框架配置 (1项)</h3><div class="skill-grid">
+        <div class="skill-card">
+            <div class="skill-name">Spring Boot配置</div>
+            <div class="skill-meta">
+                <span class="skill-level level-intermediate">中级</span>
+                <span class="skill-confidence">置信度: 80%</span>
+            </div>
+            <div class="skill-evidence">证据: YAML配置文件</div>
+        </div>
+        </div></div><div class="category-section"><h3 class="category-title">📁 缓存 (1项)</h3><div class="skill-grid">
+        <div class="skill-card">
+            <div class="skill-name">Redis缓存</div>
+            <div class="skill-meta">
+                <span class="skill-level level-advanced">高级</span>
+                <span class="skill-confidence">置信度: 70%</span>
+            </div>
+            <div class="skill-evidence">证据: Redis配置</div>
+        </div>
+        </div></div>
+        </div>
+
+        <div class="section">
+            <h2>📊 技能分布统计</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">6</div>
+                    <div style="color: #666; margin-top: 5px;">Java技能</div>
+                    <div style="margin-top: 10px; background: #e9ecef; border-radius: 5px; height: 8px;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: 21%; border-radius: 5px;"></div>
+                    </div>
+                </div>
+    
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">6</div>
+                    <div style="color: #666; margin-top: 5px;">框架组件</div>
+                    <div style="margin-top: 10px; background: #e9ecef; border-radius: 5px; height: 8px;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: 21%; border-radius: 5px;"></div>
+                    </div>
+                </div>
+    
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">5</div>
+                    <div style="color: #666; margin-top: 5px;">Java框架</div>
+                    <div style="margin-top: 10px; background: #e9ecef; border-radius: 5px; height: 8px;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: 18%; border-radius: 5px;"></div>
+                    </div>
+                </div>
+    
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">4</div>
+                    <div style="color: #666; margin-top: 5px;">Maven依赖</div>
+                    <div style="margin-top: 10px; background: #e9ecef; border-radius: 5px; height: 8px;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: 14%; border-radius: 5px;"></div>
+                    </div>
+                </div>
+    
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">2</div>
+                    <div style="color: #666; margin-top: 5px;">ORM框架</div>
+                    <div style="margin-top: 10px; background: #e9ecef; border-radius: 5px; height: 8px;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: 7%; border-radius: 5px;"></div>
+                    </div>
+                </div>
+    
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">2</div>
+                    <div style="color: #666; margin-top: 5px;">测试框架</div>
+                    <div style="margin-top: 10px; background: #e9ecef; border-radius: 5px; height: 8px;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: 7%; border-radius: 5px;"></div>
+                    </div>
+                </div>
+    
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">1</div>
+                    <div style="color: #666; margin-top: 5px;">架构设计</div>
+                    <div style="margin-top: 10px; background: #e9ecef; border-radius: 5px; height: 8px;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: 4%; border-radius: 5px;"></div>
+                    </div>
+                </div>
+    
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">1</div>
+                    <div style="color: #666; margin-top: 5px;">框架配置</div>
+                    <div style="margin-top: 10px; background: #e9ecef; border-radius: 5px; height: 8px;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: 4%; border-radius: 5px;"></div>
+                    </div>
+                </div>
+    
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 2em; font-weight: bold; color: #667eea;">1</div>
+                    <div style="color: #666; margin-top: 5px;">缓存</div>
+                    <div style="margin-top: 10px; background: #e9ecef; border-radius: 5px; height: 8px;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 100%; width: 4%; border-radius: 5px;"></div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>由 MiniMax Agent 专业代码审核工具生成</p>
+        </div>
+    </div>
+</body>
+</html>
